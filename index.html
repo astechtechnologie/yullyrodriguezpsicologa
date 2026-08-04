@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Psicóloga especializada en terapia online y presencial. Consulta segura y confidencial">
+  <title>María López · Psicóloga</title>
+  <style>
+    /* === ESTILOS GENERALES === */
+    :root {
+      --color-primario: #5b8c85;  /* verde salvia */
+      --color-secundario: #f4f9f7;
+      --color-texto: #333;
+      --color-blanco: #ffffff;
+      --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,
+        }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+    body {
+      font-family: var(--fuente);
+      line-height: 1.6;
+      color: var(--color-texto);
+      background-color: var(--color-secundario);
+    }
+
+    /* === ENCABEZADO Y NAVEGACION ===*/
+    header {
+      background-color: var(--color-blanco);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      padding: 1rem 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-primario);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a {
+      color: #3d6b64;
+      text-decoration: underline;
+    }
+
+    /* === SECCIÓN HERO === */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #5b8c85, #7fb3a5);
+      color: var(--color-blanco);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--color-blanco);
+      color: var(--color-primario);
+      padding: 0.8rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: blod;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0,.1);
+    }
+
+    /* === SECCIÓN INTRO === */
+    .intro {
+      max-width: 800px;
+      margin: 3rem auto;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      color: var(--color-primero);
+      margin-bottom: 1.1rem;
+    }
+    /* === TARJETA DE SERVICIOS === */
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .servicio {
+      background: var (--color-blanco);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .servicio:hover {
+      transform: translateY(-5px);
+    }
+
+    .servicio h3 {
+      color: var(--color-primario);
+      margin-bottom: 0.5rem;
+    }
+
+    /* === PIE DE PÁGINA === */
+    footer {
+      background-color: var(--color-blanco);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0
+    }
+    footer a {
+      color: var(--color-primario);
+      margin: 0 0.5rem;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px){
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.hatml">Inicio</a>
+      <a href="sobre-mi.hatml"></a>
+      <a href="servicios.html"></a>
+      <a href="blog".html></a>
+      <a href="contacto.html"></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- seccion principal con llamada a la accion -->
+    <section class="hero">
+      <h1>Yully Rodriguez</h1>
+      <p>Psicóloga especializada en desarrollo personal, ansiedad y depresión. Acompañamiento terapéutico con calidez y profesionalismo.</p>
+      <a href="contacto.html" class="btn">Agenda tu primera sesión </a>
+    </section>
+
+    <!-- Mensaje de vienvenida -->
+    <section class="intro">
+       <h2> Un espacio seguro para ti</h2>
+      <p>Acompañamiento profesional desde la empatia y la evidencia científica. Ayudo a adultos y adolescentes a superar ansiedad, estrés y bloqueos emocionales.</p>
+    </section>
+
+    <!-- Servicios destacados (ejemplo) -->
+    <section class="servicios">
+      <div  class="servicio">
+        <h3>Terapia individual</h3>
+        <p>Procesos de cambio personal para tu bienestar emocional.</p>
+      </div>
+      <div class="servicio">
+        <h3>Terapia online</h3>
+        <p>Sesiones por videollamada, con la misma calidad y cercania.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Yully Rodríguez Psicóloga. Todos los derechos reservados.</p>
+    <p>
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html">Politica de privacidad</a>
+      </p>
+  </footer>
+</body>
+</html>
