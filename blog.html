@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog · Yully Rodriguez</title>
+  <style>
+    :root {
+      --color-primario: #5b8c85;
+      --color-secundario: #f4f9f7;
+      --color-texto: #333;
+      --color-blanco: #ffffff;
+      --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--fuente); line-height: 1.6; color: var(--color-texto); background-color: var(--color-secundario); }
+    header { background-color: var(--color-blanco); box-shadow: 0 2px 5px rgba(0,0,0,0.08); padding: 1rem 2rem; }
+    nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; }
+    nav a { text-decoration: none; color: var(--color-primario); font-weight: 600; transition: color 0.3s; }
+    nav a:hover { color: #3d6b64; text-decoration: underline; }
+    main { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
+    h1 { color: var(--color-primario); font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+    .entrada { background: var(--color-blanco); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .entrada h2 { color: var(--color-primario); margin-bottom: 0.5rem; }
+    .entrada .fecha { color: #999; font-size: 0.9rem; }
+    footer { background-color: var(--color-blanco); text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: #666; border-top: 1px solid #e0e0e0; }
+    footer a { color: var(--color-primario); margin: 0 0.5rem; }
+    @media (max-width: 600px) { h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Blog</h1>
+
+    <div class="entrada">
+      <h2>Cómo gestionar la ansiedad en el día a día</h2>
+      <p class="fecha">Publicado el 10 de enero de 2025</p>
+      <p>La ansiedad es una respuesta natural, pero cuando se vuelve persistente puede limitar nuestra vida. Aquí te comparto 5 estrategias prácticas...</p>
+      <a href="#">Leer más →</a>
+    </div>
+
+    <div class="entrada">
+      <h2>Mindfulness para principiantes</h2>
+      <p class="fecha">Publicado el 2 de enero de 2025</p>
+      <p>El mindfulness no es dejar la mente en blanco, es aprender a estar presente. Descubre cómo empezar con ejercicios sencillos.</p>
+      <a href="#">Leer más →</a>
+    </div>
+
+    <p style="text-align:center; margin-top:2rem;">Próximamente más contenidos. Suscríbete a la newsletter en <a href="contacto.html">contacto</a>.</p>
+  </main>
+
+  <footer>
+    <p>© 2025 Yully Rodriguez · Psicóloga </p>
+    <p>
+      <a href="aviso-legal.html">Aviso legal</a> · 
+      <a href="privacidad.html">Política de privacidad</a>
+    </p>
+  </footer>
+</body>
+</html>
