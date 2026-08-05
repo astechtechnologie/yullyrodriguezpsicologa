@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí · María López</title>
+  <style>
+    /* === ESTILOS GENERALES (mismos que en index) === */
+    :root {
+      --color-primario: #5b8c85;
+      --color-secundario: #f4f9f7;
+      --color-texto: #333;
+      --color-blanco: #ffffff;
+      --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--fuente); line-height: 1.6; color: var(--color-texto); background-color: var(--color-secundario); }
+    header { background-color: var(--color-blanco); box-shadow: 0 2px 5px rgba(0,0,0,0.08); padding: 1rem 2rem; }
+    nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; }
+    nav a { text-decoration: none; color: var(--color-primario); font-weight: 600; transition: color 0.3s; }
+    nav a:hover { color: #3d6b64; text-decoration: underline; }
+    /* === CONTENIDO PRINCIPAL === */
+    main { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
+    h1 { color: var(--color-primario); font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+    .perfil { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .perfil img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .perfil p { text-align: center; max-width: 600px; }
+    /* === PIE DE PÁGINA === */
+    footer { background-color: var(--color-blanco); text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: #666; border-top: 1px solid #e0e0e0; }
+    footer a { color: var(--color-primario); margin: 0 0.5rem; }
+    @media (max-width: 600px) { h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Sobre mí</h1>
+    <div class="perfil">
+      <!-- Reemplaza la ruta de la imagen por la tuya, ej: images/maria.jpg -->
+      <img src="images/maria.jpg" alt="María López, psicóloga">
+      <p>
+        Soy María López, psicóloga sanitaria colegiada (Nº XX-XXXX) con más de 10 años de experiencia 
+        acompañando a personas en procesos de cambio y crecimiento personal. Mi enfoque integra 
+        la terapia cognitivo-conductual con herramientas de mindfulness y psicología positiva.
+      </p>
+      <p>
+        Me formé en la Universidad Complutense de Madrid y he complementado mi formación con 
+        un máster en Psicología Clínica y de la Salud. Ofrezco un espacio seguro, sin juicios, 
+        donde explorar tus emociones y encontrar nuevas formas de relacionarte contigo y con los demás.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Yully Rodriguez · Psicóloga </p>
+    <p>
+      <a href="aviso-legal.html">Aviso legal</a> · 
+      <a href="privacidad.html">Política de privacidad</a>
+    </p>
+  </footer>
+</body>
+</html>
