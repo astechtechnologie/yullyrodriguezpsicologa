@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto · Yully Rodriguez</title>
+  <style>
+    :root {
+      --color-primario: #5b8c85;
+      --color-secundario: #f4f9f7;
+      --color-texto: #333;
+      --color-blanco: #ffffff;
+      --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--fuente); line-height: 1.6; color: var(--color-texto); background-color: var(--color-secundario); }
+    header { background-color: var(--color-blanco); box-shadow: 0 2px 5px rgba(0,0,0,0.08); padding: 1rem 2rem; }
+    nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; }
+    nav a { text-decoration: none; color: var(--color-primario); font-weight: 600; transition: color 0.3s; }
+    nav a:hover { color: #3d6b64; text-decoration: underline; }
+    main { max-width: 700px; margin: 3rem auto; padding: 0 1.5rem; }
+    h1 { color: var(--color-primario); font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+    form { background: var(--color-blanco); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input, textarea { width: 100%; padding: 0.8rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 5px; font-family: var(--fuente); }
+    button { background: var(--color-primario); color: white; border: none; padding: 0.8rem 2rem; margin-top: 1.5rem; border-radius: 30px; font-weight: bold; cursor: pointer; }
+    button:hover { background: #3d6b64; }
+    .info { margin-bottom: 2rem; text-align: center; }
+    footer { background-color: var(--color-blanco); text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: #666; border-top: 1px solid #e0e0e0; }
+    footer a { color: var(--color-primario); margin: 0 0.5rem; }
+    @media (max-width: 600px) { h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contacto</h1>
+    <div class="info">
+      <p><strong>Email:</strong> yullyrodriguezgarzon@gmail.com</p>
+      <p><strong>Teléfono:</strong> +57 312 495 4578</p>
+      <p><strong>Dirección:</strong> Calle Ejemplo 123, Ciudad</p>
+    </div>
+
+    <form action="https://formspree.io/f/tu-id-aqui" method="POST">
+      <label for="nombre">Nombre *</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mensaje">Mensaje *</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <label>
+        <input type="checkbox" name="privacidad" required>
+        He leído y acepto la <a href="privacidad.html">política de privacidad</a>.
+      </label>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 Yully Rodriguez · Psicóloga </p>
+    <p>
+      <a href="aviso-legal.html">Aviso legal</a> · 
+      <a href="privacidad.html">Política de privacidad</a>
+    </p>
+  </footer>
+</body>
+</html>
