@@ -403,3 +403,78 @@ footer a {
   height: 32px;
   fill: white;
 }
+/* ===== ENCABEZADO Y NAVEGACIÓN CON LOGO ===== */
+header {
+  background-color: var(--color-blanco);
+  box-shadow: var(--sombra-suave);
+  padding: 0.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Enlace del logo */
+.logo-enlace {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 50px;  /* Ajusta según el tamaño que prefieras */
+  width: auto;
+}
+
+/* Contenedor de los enlaces de navegación */
+.nav-enlaces {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.nav-enlaces a {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: 500;
+  transition: var(--transicion);
+  position: relative;
+  padding: 0.3rem 0;
+}
+
+.nav-enlaces a:hover {
+  color: var(--color-primario);
+}
+
+/* Subrayado animado */
+.nav-enlaces a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primario);
+  transition: width 0.3s;
+}
+
+.nav-enlaces a:hover::after {
+  width: 100%;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .nav-enlaces {
+    justify-content: center;
+  }
+}
