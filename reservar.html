@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva tu cita · Yully Mallerly Rodríguez Garzón</title>
+  <style>
+    :root {
+      --color-primario: #5b8c85;
+      --color-secundario: #f4f9f7;
+      --color-texto: #333;
+      --color-blanco: #ffffff;
+      --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--fuente); line-height: 1.6; color: var(--color-texto); background-color: var(--color-secundario); }
+    header { background-color: var(--color-blanco); box-shadow: 0 2px 5px rgba(0,0,0,0.08); padding: 1rem 2rem; }
+    nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; }
+    nav a { text-decoration: none; color: var(--color-primario); font-weight: 600; transition: color 0.3s; }
+    nav a:hover { color: #3d6b64; text-decoration: underline; }
+    main { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
+    h1 { color: var(--color-primario); font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+    .calendly-inline-widget { min-width: 320px; height: 700px; border: 1px solid #ddd; border-radius: 10px; }
+    footer { background-color: var(--color-blanco); text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: #666; border-top: 1px solid #e0e0e0; }
+    footer a { color: var(--color-primario); margin: 0 0.5rem; }
+    @media (max-width: 600px) { h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="reservar.html">Reservar cita</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Elige tu fecha y hora</h1>
+    <p style="text-align:center; margin-bottom: 2rem;">Selecciona el día y la hora que mejor se adapten a ti. Recibirás confirmación por correo y recordatorios automáticos.</p>
+    <!-- Principio del widget integrado de Calendly -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/yullyrodriguezpsicologa/psicoterapia" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Final del widget integrado de Calendly -->
+  </main>
+
+  <footer>
+    <p>© 2025 Yully Mallerly Rodríguez Garzón · Psicóloga</p>
+    <p>
+      <a href="aviso-legal.html">Aviso legal</a> · 
+      <a href="privacidad.html">Política de privacidad</a>
+    </p>
+  </footer>
+</body>
+</html>
