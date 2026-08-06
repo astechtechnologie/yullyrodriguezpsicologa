@@ -3,8 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto · Yully Rodriguez</title>
+  <title>Contacto · Yully Mallerly Rodríguez Garzón</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .contacto-contenedor {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .info-contacto {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .info-contacto p {
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    .info-contacto strong {
+      color: var(--color-primario);
+    }
+
+    form {
+      background: var(--color-blanco);
+      padding: 2.5rem;
+      border-radius: var(--borde-redondo);
+      box-shadow: var(--sombra-suave);
+    }
+
+    label {
+      display: block;
+      margin-top: 1.2rem;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-top: 0.4rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: var(--fuente);
+      transition: var(--transicion);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--color-primario);
+      box-shadow: 0 0 0 3px rgba(91,140,133,0.1);
+    }
+
+    button {
+      background: var(--color-primario);
+      color: white;
+      border: none;
+      padding: 0.9rem 2.5rem;
+      margin-top: 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-family: var(--fuente);
+      cursor: pointer;
+      width: 100%;
+      transition: var(--transicion);
+    }
+
+    button:hover {
+      background: var(--color-primario-oscuro);
+      transform: translateY(-2px);
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .checkbox-container input {
+      width: auto;
+      margin-top: 0.2rem;
+    }
+
+    .checkbox-container a {
+      color: var(--color-primario);
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,34 +105,37 @@
   </header>
 
   <main>
-    <h1>Contacto</h1>
-    <div class="info">
-      <p><strong>Email:</strong> yullyrodriguezgarzon@gmail.com</p>
-      <p><strong>Teléfono:</strong> +57 312 495 4578</p>
-      <p><strong>Dirección:</strong> Calle 4 Sur # 35-95</p>
+    <div class="contacto-contenedor">
+      <h1 style="text-align:center; color:var(--color-primario); margin-bottom: 1.5rem;">Contacto</h1>
+
+      <div class="info-contacto">
+        <p><strong>Email:</strong> yullyrodriguezgarzon@gmail.com</p>
+        <p><strong>Teléfono:</strong> +57 312 495 4578</p>
+        <p><strong>Consulta online:</strong> desde cualquier lugar · <strong>Presencial:</strong> Villavicencio</p>
+      </div>
+
+      <form action="https://formspree.io/f/myegydae" method="POST">
+        <label for="nombre">Nombre *</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="privacidad" name="privacidad" required>
+          <label for="privacidad">He leído y acepto la <a href="privacidad.html">política de privacidad</a>.</label>
+        </div>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
     </div>
-
-    <form action="https://formspree.io/f/myegydae" method="POST">
-      <label for="nombre">Nombre *</label>
-      <input type="text" id="nombre" name="nombre" required>
-
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="mensaje">Mensaje *</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-
-      <label>
-        <input type="checkbox" name="privacidad" required>
-        He leído y acepto la <a href="privacidad.html">política de privacidad</a>.
-      </label>
-
-      <button type="submit">Enviar mensaje</button>
-    </form>
   </main>
 
   <footer>
-    <p>© 2025 Yully Rodriguez · Psicóloga </p>
+    <p>© 2025 Yully Mallerly Rodríguez Garzón · Psicóloga</p>
     <p>
       <a href="aviso-legal.html">Aviso legal</a> · 
       <a href="privacidad.html">Política de privacidad</a>
