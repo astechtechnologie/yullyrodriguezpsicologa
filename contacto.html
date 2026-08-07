@@ -55,11 +55,13 @@
       color: var(--color-primario);
       margin-bottom: 0.5rem;
     }
-    .contacto-card a, .contacto-card p {
-      color: var(--color-texto);
-      text-decoration: none;
-      font-size: 1rem;
-    }
+    .contacto-card a {
+  color: var(--color-texto);
+  text-decoration: none;
+  font-size: 1rem;
+  word-break: break-word;       /* Fuerza el salto si la palabra es muy larga */
+  overflow-wrap: break-word;    /* Alternativa para compatibilidad */
+}
     .contacto-card a:hover {
       color: var(--color-primario);
       text-decoration: underline;
@@ -204,7 +206,7 @@
       <div class="contacto-card">
         <div class="icono">📍</div>
         <h3>Ubicación</h3>
-        <p>Bogotá, Colombia<br><small>Consulta online desde cualquier lugar</small></p>
+        <p>Villavicencio/Meta, Colombia<br><small>Consulta online desde cualquier lugar</small></p>
       </div>
     </div>
 
