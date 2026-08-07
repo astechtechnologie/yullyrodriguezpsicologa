@@ -7,56 +7,166 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    .blog-container { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
-    .post {
-      background: white;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    .blog-page-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .blog-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .blog-header h1 {
+      color: var(--color-primario);
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .blog-header p {
+      color: var(--color-texto-claro);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Cuadrícula de posts */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .post-card {
+      background: var(--color-blanco);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
     }
-    .post.visible {
+    .post-card.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .post:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .post-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     }
-    .post h2 { color: #5b8c85; margin-bottom: 0.3rem; }
-    .post .fecha { color: #d4a373; font-size: 0.9rem; margin-bottom: 1rem; }
-    .post .contenido { line-height: 1.7; }
-    .post .leer-mas { color: #5b8c85; font-weight: 600; text-decoration: none; }
-    .post .leer-mas:hover { text-decoration: underline; }
+    .post-card-imagen {
+      background: linear-gradient(135deg, var(--color-primario), #7fb3a5);
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+    }
+    .post-card-contenido {
+      padding: 1.8rem;
+    }
+    .post-card-contenido h2 {
+      color: var(--color-primario);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .post-card-contenido .fecha {
+      color: var(--color-acento);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .post-card-contenido p {
+      color: var(--color-texto);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .btn-leer {
+      color: var(--color-primario);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .btn-leer:hover {
+      color: var(--color-primario-oscuro);
+      text-decoration: underline;
+    }
+
+    /* Banner de newsletter */
+    .newsletter-banner {
+      background: linear-gradient(135deg, #5b8c85, #7fb3a5);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 3rem;
+    }
+    .newsletter-banner h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .newsletter-banner p {
+      margin-bottom: 1.5rem;
+    }
+    .btn-banner-blog {
+      display: inline-block;
+      background: white;
+      color: #5b8c85;
+      padding: 0.7rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+    .btn-banner-blog:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .blog-header h1 {
+        font-size: 2.2rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="index.html" class="logo-enlace">
-        <img src="logo.png" alt="Yully Mallerly Rodríguez Garzón" class="logo-img">
-      </a>
+      <a href="index.html" class="logo-enlace"><img src="logo.png" alt="Yully Mallerly Rodríguez Garzón" class="logo-img"></a>
       <div class="nav-enlaces">
         <a href="index.html">Inicio</a>
         <a href="sobre-mi.html">Sobre mí</a>
         <a href="servicios.html">Servicios</a>
         <a href="reservar.html">Reservar cita</a>
         <a href="blog.html">Blog</a>
-        <a href="videos.html">Redes</a>
+        <a href="videos.html">Videos</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </nav>
   </header>
 
-  <main class="blog-container">
-    <h1 style="color:#5b8c85; text-align:center; margin-bottom:2rem;">Blog</h1>
-    <div id="posts-container"></div>
+  <main class="blog-page-container">
+    <div class="blog-header">
+      <h1>Blog</h1>
+      <p>Reflexiones, herramientas y contenido psicoeducativo para tu bienestar emocional.</p>
+    </div>
+
+    <div class="posts-grid" id="posts-container">
+      <!-- Los posts se cargarán dinámicamente -->
+    </div>
+
+    <!-- Banner de contacto (simula newsletter) -->
+    <div class="newsletter-banner">
+      <h3>¿Quieres recibir más contenido?</h3>
+      <p>Escríbeme y te enviaré artículos y recursos exclusivos sobre psicología y bienestar.</p>
+      <a href="contacto.html" class="btn-banner-blog">Contactar</a>
+    </div>
   </main>
 
   <footer>
+    <div class="redes-sociales">
+      <a href="https://www.instagram.com/yullypsicologa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
     <p>© 2025 Yully Mallerly Rodríguez Garzón · Psicóloga</p>
     <p>
       <a href="aviso-legal.html">Aviso legal</a> · 
@@ -66,42 +176,40 @@
     </p>
   </footer>
 
-  <!-- Botón de WhatsApp -->
-  <a href="https://wa.me/573000000000?text=Hola%20Yully%2C%20quisiera%20información%20sobre%20terapia" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/573124954578?text=Hola%20Yully%2C%20quisiera%20información%20sobre%20terapia" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
   <script>
-    // ARTÍCULOS DEL BLOG
-    // Para añadir uno nuevo, copia y pega un bloque {} dentro del array.
+    // Artículos del blog
     const posts = [
       {
         title: "¿Cómo sé si tengo dependencia emocional?",
         date: "15 de enero de 2025",
         resumen: "La dependencia emocional va más allá de amar intensamente. Identifica sus señales y descubre el primer paso para liberarte.",
-        contenido: "La dependencia emocional se caracteriza por una necesidad excesiva de aprobación y afecto por parte de la pareja. Algunas señales incluyen: miedo intenso al abandono, dificultad para tomar decisiones sin consultar, sensación de vacío cuando no estás con esa persona y pérdida de identidad propia. El primer paso para superarla es reconocer el patrón. En terapia trabajamos para fortalecer tu autoestima, establecer límites saludables y construir relaciones más equilibradas. Si te identificas con estas señales, no dudes en pedir ayuda profesional."
+        contenido: "La dependencia emocional se caracteriza por una necesidad excesiva de aprobación y afecto por parte de la pareja. Algunas señales incluyen: miedo intenso al abandono, dificultad para tomar decisiones sin consultar, sensación de vacío cuando no estás con esa persona y pérdida de identidad propia. El primer paso para superarla es reconocer el patrón. En terapia trabajamos para fortalecer tu autoestima, establecer límites saludables y construir relaciones más equilibradas."
       },
       {
         title: "Las fases del duelo: no son lineales",
         date: "5 de enero de 2025",
         resumen: "El duelo no sigue un camino recto. Conoce las fases y por qué es importante respetar tu propio ritmo.",
-        contenido: "Aunque popularmente se habla de cinco fases del duelo (negación, ira, negociación, depresión y aceptación), la realidad es que no son etapas fijas ni lineales. Cada persona transita el duelo de forma única. Puedes pasar de la ira a la aceptación y luego volver a sentir tristeza intensa. Todo esto es normal y válido. Lo importante es permitirte sentir sin juzgarte y buscar acompañamiento profesional si el dolor interfiere significativamente con tu vida diaria durante un período prolongado."
+        contenido: "Aunque popularmente se habla de cinco fases del duelo (negación, ira, negociación, depresión y aceptación), la realidad es que no son etapas fijas ni lineales. Cada persona transita el duelo de forma única. Puedes pasar de la ira a la aceptación y luego volver a sentir tristeza intensa. Todo esto es normal y válido. Lo importante es permitirte sentir sin juzgarte y buscar acompañamiento profesional si el dolor interfiere significativamente con tu vida diaria."
       },
       {
         title: "Reconstruir la autoestima tras una ruptura",
         date: "20 de diciembre de 2024",
         resumen: "Una separación puede hacernos dudar de nuestro valor. Te comparto ejercicios prácticos para recuperar la confianza en ti.",
-        contenido: "Tras una ruptura amorosa, es frecuente que la autoestima se vea afectada. Pensamientos como 'no soy suficiente' o 'nunca encontraré a alguien' pueden inundar tu mente. Para reconstruir tu autoestima: 1) Reconoce tus cualidades y logros personales más allá de la relación. 2) Rodéate de personas que te valoren. 3) Establece pequeñas metas diarias que te devuelvan la sensación de control. 4) Practica el autocuidado: alimentación, ejercicio y descanso. 5) Considera la terapia como un espacio seguro para explorar tus emociones y fortalecer tu amor propio."
+        contenido: "Tras una ruptura amorosa, es frecuente que la autoestima se vea afectada. Para reconstruirla: reconoce tus cualidades más allá de la relación, rodéate de personas que te valoren, establece pequeñas metas diarias y practica el autocuidado. La terapia puede ser un espacio seguro para explorar tus emociones y fortalecer tu amor propio."
       },
       {
         title: "Mindfulness para principiantes",
         date: "10 de diciembre de 2024",
         resumen: "El mindfulness no es dejar la mente en blanco, es aprender a estar presente. Descubre cómo empezar con ejercicios sencillos.",
-        contenido: "Mindfulness significa atención plena: estar presente en el aquí y ahora sin juzgar. No se trata de eliminar pensamientos, sino de observarlos sin engancharte a ellos. Para empezar: dedica 5 minutos al día a respirar conscientemente, sintiendo el aire entrar y salir. Puedes usar aplicaciones como Calm o Headspace, o simplemente prestar atención a las sensaciones de tu cuerpo mientras caminas. La práctica regular reduce la ansiedad y mejora la concentración. Si quieres profundizar, existen talleres y terapias basadas en mindfulness."
+        contenido: "Mindfulness significa atención plena. Dedica 5 minutos al día a respirar conscientemente, prestando atención a las sensaciones de tu cuerpo. La práctica regular reduce la ansiedad y mejora la concentración."
       }
     ];
 
-    // Cargar los posts en la página
     const container = document.getElementById('posts-container');
 
     function mostrarPosts() {
@@ -109,17 +217,20 @@
 
       posts.forEach(post => {
         const postDiv = document.createElement('div');
-        postDiv.className = 'post';
+        postDiv.className = 'post-card';
         postDiv.innerHTML = `
-          <h2>${post.title}</h2>
-          <p class="fecha">${post.date}</p>
-          <p class="contenido">${post.resumen}</p>
-          <a href="#" class="leer-mas" onclick="leerMas(event, '${post.title.replace(/'/g, "\\'")}')">Leer más →</a>
+          <div class="post-card-imagen">📝</div>
+          <div class="post-card-contenido">
+            <h2>${post.title}</h2>
+            <p class="fecha">${post.date}</p>
+            <p>${post.resumen}</p>
+            <a href="#" class="btn-leer" onclick="leerMas(event, '${post.title.replace(/'/g, "\\'")}')">Leer más →</a>
+          </div>
         `;
         container.appendChild(postDiv);
       });
 
-      // Animación al hacer scroll
+      // Animaciones
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -128,25 +239,24 @@
         });
       }, { threshold: 0.2 });
 
-      document.querySelectorAll('.post').forEach(el => observer.observe(el));
+      document.querySelectorAll('.post-card').forEach(el => observer.observe(el));
     }
 
-    // Función para expandir/contraer el contenido completo
     function leerMas(event, title) {
       event.preventDefault();
       const post = posts.find(p => p.title === title);
-      const postDiv = event.target.closest('.post');
+      const card = event.target.closest('.post-card');
+      const parrafo = card.querySelector('p:not(.fecha)');
 
       if (event.target.textContent === 'Leer más →') {
-        postDiv.querySelector('.contenido').textContent = post.contenido;
+        parrafo.textContent = post.contenido;
         event.target.textContent = 'Leer menos ←';
       } else {
-        postDiv.querySelector('.contenido').textContent = post.resumen;
+        parrafo.textContent = post.resumen;
         event.target.textContent = 'Leer más →';
       }
     }
 
-    // Iniciar
     mostrarPosts();
   </script>
 </body>
