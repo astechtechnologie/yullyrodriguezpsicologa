@@ -2,81 +2,322 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios · Yully Mallerly Rodríguez Garzón</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .servicios-page-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .servicios-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .servicios-header h1 {
+      color: var(--color-primario);
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .servicios-header p {
+      color: var(--color-texto-claro);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Tarjetas de servicio */
+    .servicio-card {
+      display: flex;
+      flex-wrap: wrap;
+      background: var(--color-blanco);
+      border-radius: var(--borde-redondo);
+      box-shadow: var(--sombra-suave);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .servicio-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .servicio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sombra-media);
+    }
+    .servicio-icono {
+      background: linear-gradient(135deg, var(--color-primario), #7fb3a5);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      min-width: 120px;
+      padding: 1.5rem;
+    }
+    .servicio-contenido {
+      flex: 1;
+      padding: 2rem;
+    }
+    .servicio-contenido h2 {
+      color: var(--color-primario);
+      margin-bottom: 0.5rem;
+    }
+    .servicio-contenido p {
+      margin-bottom: 1rem;
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+    .servicio-detalles {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.9rem;
+      color: var(--color-texto-claro);
+      margin-bottom: 1.5rem;
+    }
+    .btn-servicio {
+      display: inline-block;
+      background: var(--color-primario);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn-servicio:hover {
+      background: var(--color-primario-oscuro);
+      transform: translateY(-2px);
+    }
+
+    /* Sección "Cómo funciona" */
+    .proceso {
+      margin: 4rem 0;
+      text-align: center;
+    }
+    .proceso h2 {
+      color: var(--color-primario);
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .paso {
+      background: var(--color-blanco);
+      padding: 2rem;
+      border-radius: var(--borde-redondo);
+      box-shadow: var(--sombra-suave);
+      transition: transform 0.3s;
+    }
+    .paso:hover {
+      transform: translateY(-5px);
+    }
+    .paso-numero {
+      background: var(--color-acento);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin: 0 auto 1rem;
+    }
+    .paso h3 {
+      color: var(--color-primario);
+      margin-bottom: 0.5rem;
+    }
+    .paso p {
+      color: var(--color-texto-claro);
+      font-size: 0.95rem;
+    }
+
+    /* Banner de contacto */
+    .banner-contacto {
+      background: linear-gradient(135deg, #5b8c85, #7fb3a5);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: var(--borde-redondo);
+      margin-top: 3rem;
+    }
+    .banner-contacto h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .banner-contacto .btn-banner {
+      background: white;
+      color: var(--color-primario);
+      padding: 0.8rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .banner-contacto .btn-banner:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .servicio-card {
+        flex-direction: column;
+      }
+      .servicio-icono {
+        min-width: auto;
+        padding: 1rem;
+        font-size: 2.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-  <nav>
-    <!-- Logo a la izquierda -->
-    <a href="index.html" class="logo-enlace">
-      <img src="logo.png" alt="Yully Mallerly Rodríguez Garzón" class="logo-img">
-    </a>
-    <!-- Enlaces a la derecha -->
-    <div class="nav-enlaces">
-      <a href="index.html">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="reservar.html">Reservar cita</a>
-      <a href="blog.html">Blog</a>
-      <a href="videos.html">Redes</a>
-      <a href="contacto.html">Contacto</a>
+    <nav>
+      <a href="index.html" class="logo-enlace"><img src="logo.png" alt="Yully Mallerly Rodríguez Garzón" class="logo-img"></a>
+      <div class="nav-enlaces">
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="reservar.html">Reservar cita</a>
+        <a href="blog.html">Blog</a>
+        <a href="videos.html">Videos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="servicios-page-container">
+    <!-- Cabecera -->
+    <div class="servicios-header">
+      <h1>Servicios</h1>
+      <p>Te ofrezco un espacio de acompañamiento profesional adaptado a tus necesidades. Estos son los caminos que podemos recorrer juntos.</p>
     </div>
-  </nav>
-</header>
 
-  <main>
-  <h1>Servicios</h1>
+    <!-- Servicio 1 -->
+    <div class="servicio-card">
+      <div class="servicio-icono">🧠</div>
+      <div class="servicio-contenido">
+        <h2>Terapia individual</h2>
+        <p>Sesiones personalizadas para adultos que buscan mejorar su bienestar emocional, superar ansiedad, estrés o fortalecer su autoestima. Trabajaremos juntos con herramientas prácticas basadas en tu realidad.</p>
+        <div class="servicio-detalles">
+          <span>⏱️ 50 min</span>
+          <span>💻 Online / Presencial</span>
+        </div>
+        <a href="reservar.html" class="btn-servicio">Agendar sesión</a>
+      </div>
+    </div>
 
-  <div class="servicio-detalle">
-    <h2>Terapia individual para adultos</h2>
-    <p>Trabajaremos en tus dificultades actuales desde un enfoque integrador, combinando herramientas de la psicología clínica y de la salud. Ideal si estás atravesando problemas de autoestima, ansiedad, estrés o necesitas orientación en un momento vital difícil.</p>
-    <p><strong>Duración:</strong> 50 minutos · <strong>Modalidad:</strong> online o presencial</p>
-    <a href="contacto.html" class="btn-servicio">Quiero empezar</a>
-  </div>
+    <!-- Servicio 2 -->
+    <div class="servicio-card">
+      <div class="servicio-icono">🕊️</div>
+      <div class="servicio-contenido">
+        <h2>Acompañamiento en duelo</h2>
+        <p>El duelo no sigue reglas. Te ofrezco un espacio de escucha y apoyo para transitar la pérdida de un ser querido, una relación o una etapa vital, respetando tu ritmo y tus emociones.</p>
+        <div class="servicio-detalles">
+          <span>⏱️ 50 min</span>
+          <span>💻 Online / Presencial</span>
+        </div>
+        <a href="reservar.html" class="btn-servicio">Agendar sesión</a>
+      </div>
+    </div>
 
-  <div class="servicio-detalle">
-    <h2>Acompañamiento en duelo</h2>
-    <p>El duelo es un proceso natural, pero a veces necesitamos ayuda profesional para transitarlo. Te ofrezco un espacio seguro donde expresar tu dolor y encontrar herramientas para seguir adelante sin olvidar a quien amaste.</p>
-    <p><strong>Duración:</strong> 50 minutos · <strong>Modalidad:</strong> online o presencial</p>
-    <a href="contacto.html" class="btn-servicio">Quiero empezar</a>
-  </div>
+    <!-- Servicio 3 -->
+    <div class="servicio-card">
+      <div class="servicio-icono">💔</div>
+      <div class="servicio-contenido">
+        <h2>Superación de rupturas amorosas</h2>
+        <p>Una separación puede desestabilizarte. Te ayudo a sanar, reconstruir tu identidad y recuperar la confianza para futuras relaciones desde el amor propio.</p>
+        <div class="servicio-detalles">
+          <span>⏱️ 50 min</span>
+          <span>💻 Online / Presencial</span>
+        </div>
+        <a href="reservar.html" class="btn-servicio">Agendar sesión</a>
+      </div>
+    </div>
 
-  <div class="servicio-detalle">
-    <h2>Terapia para rupturas amorosas</h2>
-    <p>Una separación puede desestabilizar nuestro mundo emocional. Te ayudo a sanar el corazón roto, reconstruir tu identidad y recuperar la confianza para futuras relaciones.</p>
-    <p><strong>Duración:</strong> 50 minutos · <strong>Modalidad:</strong> online o presencial</p>
-    <a href="contacto.html" class="btn-servicio">Quiero empezar</a>
-  </div>
+    <!-- Servicio 4 -->
+    <div class="servicio-card">
+      <div class="servicio-icono">🔗</div>
+      <div class="servicio-contenido">
+        <h2>Dependencia emocional</h2>
+        <p>Aprende a identificar patrones, establecer límites y cultivar relaciones más sanas. Libérate de la necesidad de aprobación constante y reconecta contigo.</p>
+        <div class="servicio-detalles">
+          <span>⏱️ 50 min</span>
+          <span>💻 Online / Presencial</span>
+        </div>
+        <a href="reservar.html" class="btn-servicio">Agendar sesión</a>
+      </div>
+    </div>
 
-  <div class="servicio-detalle">
-    <h2>Superación de la dependencia emocional</h2>
-    <p>Aprenderás a identificar patrones de dependencia, establecer límites saludables y cultivar una autoestima fuerte que te permita vivir relaciones más libres y satisfactorias.</p>
-    <p><strong>Duración:</strong> 50 minutos · <strong>Modalidad:</strong> online o presencial</p>
-    <a href="contacto.html" class="btn-servicio">Quiero empezar</a>
-  </div>
+    <!-- Sección "¿Cómo funciona?" -->
+    <div class="proceso">
+      <h2>¿Cómo es el proceso?</h2>
+      <div class="pasos">
+        <div class="paso">
+          <div class="paso-numero">1</div>
+          <h3>Primer contacto</h3>
+          <p>Te pones en contacto a través del formulario, WhatsApp o reservas tu primera cita. En menos de 24h te responderé.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-numero">2</div>
+          <h3>Primera sesión</h3>
+          <p>Conversaremos sobre lo que te preocupa, tus objetivos y expectativas. Decidiremos juntos el plan a seguir, sin compromiso.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-numero">3</div>
+          <h3>Seguimiento</h3>
+          <p>Sesiones periódicas donde trabajaremos activamente con herramientas terapéuticas. Iremos evaluando avances y ajustando.</p>
+        </div>
+      </div>
+    </div>
 
-  <div class="servicio-detalle">
-    <h2>Talleres y contenido psicoeducativo</h2>
-    <p>Organizo talleres grupales y creo material digital para divulgar herramientas de salud mental aplicables a la vida cotidiana. Visita el blog o contáctame para conocer las próximas actividades.</p>
-    <a href="blog.html" class="btn-servicio">Ver blog</a>
-  </div>
-</main>
+    <!-- Banner de contacto -->
+    <div class="banner-contacto">
+      <h2>¿Listo para empezar?</h2>
+      <p style="margin-bottom:1.5rem;">Da el primer paso hacia tu bienestar emocional.</p>
+      <a href="reservar.html" class="btn-banner">Reservar primera cita</a>
+    </div>
+  </main>
 
   <footer>
-    <p>© Yully Mallerly Rodríguez Garzón · Psicóloga</p>
+    <div class="redes-sociales">
+      <a href="https://www.instagram.com/yullypsicologa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
+    <p>© 2025 Yully Mallerly Rodríguez Garzón · Psicóloga</p>
     <p>
       <a href="aviso-legal.html">Aviso legal</a> · 
-      <a href="privacidad.html">Política de privacidad</a>
+      <a href="privacidad.html">Política de privacidad</a> · 
       <a href="cookies.html">Política de cookies</a> · 
       <a href="terminos.html">Términos de uso</a>
     </p>
   </footer>
-  <a href="https://wa.me/573124954578?text=Hola%20Yully%2C%20quisiera%20información%20sobre%20terapia" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-  <script src="script.js"></script>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/573000000000?text=Hola%20Yully%2C%20quisiera%20información%20sobre%20terapia" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // Animación de tarjetas de servicio al hacer scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.servicio-card').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
