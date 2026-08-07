@@ -518,3 +518,27 @@ footer a {
     font-size: 1.8rem;
   }
 }
+/* ===== ICONOS DE REDES SOCIALES ===== */
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.redes-sociales a {
+  color: var(--color-texto-claro);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.redes-sociales a:hover {
+  color: var(--color-primario);
+  transform: translateY(-3px);
+}
+
+.redes-sociales svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
