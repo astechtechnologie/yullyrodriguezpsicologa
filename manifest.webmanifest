@@ -2,8 +2,8 @@
   "name": "Yully Rodríguez Psicóloga",
   "short_name": "Yully Psicóloga",
   "lang": "es",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#DDF1EF",
   "theme_color": "#DDF1EF",
@@ -18,5 +18,7 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "id": "/",
+  "description": "Psicología clínica y de la salud · Yully Rodríguez"
 }

@@ -1,2 +1,19 @@
-/* Offline fallback only; never caches patient data or third-party responses. */
-const CACHE='yully-public-v7-1';self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.add(new Request('./offline.html',{cache:'reload'}))).then(()=>self.skipWaiting())));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('yully-public-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET'||r.mode!=='navigate'||new URL(r.url).origin!==self.location.origin||!r.url.startsWith(self.registration.scope))return;e.respondWith(fetch(r).catch(()=>caches.open(CACHE).then(c=>c.match('./offline.html'))));});
+/* Serenity 7.1: only offline fallback is cached, never clinical or third-party data. */
+const CACHE = 'yully-public-v71-1';
+const OFFLINE = '/offline';
+self.addEventListener('install', event => event.waitUntil((async()=>{
+ const cache = await caches.open(CACHE);
+ const response = await fetch(OFFLINE,{cache:'reload'});
+ if(!response.ok) throw new Error('Offline page unavailable');
+ await cache.put(OFFLINE,response);
+ await self.skipWaiting();
+})()));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{
+ for(const key of await caches.keys()) if(key.startsWith('yully-public-') && key!==CACHE) await caches.delete(key);
+ await self.clients.claim();
+})()));
+self.addEventListener('fetch',event=>{
+ const r=event.request;
+ if(r.method!=='GET'||r.mode!=='navigate'||new URL(r.url).origin!==self.location.origin)return;
+ event.respondWith(fetch(r).catch(async()=> (await caches.match(OFFLINE,{cacheName:CACHE})) || new Response('Sin conexión',{status:503,headers:{'Content-Type':'text/plain; charset=utf-8'}})));
+});

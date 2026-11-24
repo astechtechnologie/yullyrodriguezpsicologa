@@ -3,6 +3,8 @@
 const whatsappNumero = '573124954578';
 const instagramHandle = 'yullyrodriguezpsicologa';
 window.SITE_CONFIG = Object.freeze({
+  dominio: 'https://yullyrodriguez.pages.dev',
+  version: '7.1',
   nombre: 'Yully Mallerly Rodríguez Garzón',
   profesion: 'Psicología Clínica y de la Salud',
   instagramHandle,

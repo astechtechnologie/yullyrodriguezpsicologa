@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yullyrodriguez.pages.dev/sitemap.xml

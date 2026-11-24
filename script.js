@@ -37,9 +37,12 @@
         document.addEventListener('click', (event) => { if (!nav.contains(event.target) && mobile.matches) setOpen(false); });
         if (mobile.addEventListener) mobile.addEventListener('change', sync);
         else mobile.addListener(sync);
-        const current = location.pathname.split('/').pop() || 'index.html';
+        const pageKey = path => (path.replace(/\/$/, '').split('/').pop() || 'index').replace(/\.html$/, '');
+        const current = location.pathname.endsWith('/yullyrodriguezpsicologa/') ? 'index' : pageKey(location.pathname);
         links.querySelectorAll('a[href]').forEach(a => {
-          if (a.getAttribute('href') === current) a.setAttribute('aria-current', 'page');
+          const u = new URL(a.href, location.href);
+          if (u.origin === (window.SITE_CONFIG?.dominio || location.origin) && pageKey(u.pathname) === current) a.setAttribute('aria-current', 'page');
+          else a.removeAttribute('aria-current');
         });
       }
     }
