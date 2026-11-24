@@ -1,0 +1,2 @@
+/* Imagen real primero; recurso de marca únicamente si falta. */
+(()=>{'use strict';function init(){document.querySelectorAll('img[data-portrait]').forEach(img=>{const fallback=()=>{img.removeEventListener('error',fallback);img.src='retrato-reserva.svg';img.alt='Símbolo de marca de Yully Rodríguez Psicóloga';};img.addEventListener('error',fallback,{once:true});if(img.complete&&img.naturalWidth===0)fallback();});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();})();

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "articulo-1",
+    "title": "¿Cómo sé si tengo dependencia emocional?",
+    "date": "15 de enero de 2025",
+    "category": "Dependencia emocional",
+    "resumen": "La dependencia emocional va más allá de amar intensamente. Identifica sus señales y descubre el primer paso para liberarte.",
+    "contenido": "La dependencia emocional se caracteriza por una necesidad excesiva de aprobación y afecto por parte de la pareja. Algunas señales incluyen: miedo intenso al abandono, dificultad para tomar decisiones sin consultar, sensación de vacío cuando no estás con esa persona y pérdida de identidad propia. El primer paso para superarla es reconocer el patrón. En terapia trabajamos para fortalecer tu autoestima, establecer límites saludables y construir relaciones más equilibradas."
+  },
+  {
+    "id": "articulo-2",
+    "title": "Las fases del duelo: no son lineales",
+    "date": "5 de enero de 2025",
+    "category": "Duelo",
+    "resumen": "El duelo no sigue un camino recto. Conoce las fases y por qué es importante respetar tu propio ritmo.",
+    "contenido": "Aunque popularmente se habla de cinco fases del duelo (negación, ira, negociación, depresión y aceptación), la realidad es que no son etapas fijas ni lineales. Cada persona transita el duelo de forma única. Puedes pasar de la ira a la aceptación y luego volver a sentir tristeza intensa. Todo esto es normal y válido. Lo importante es permitirte sentir sin juzgarte y buscar acompañamiento profesional si el dolor interfiere significativamente con tu vida diaria."
+  },
+  {
+    "id": "articulo-3",
+    "title": "Reconstruir la autoestima tras una ruptura",
+    "date": "20 de diciembre de 2024",
+    "category": "Autoestima",
+    "resumen": "Una separación puede hacernos dudar de nuestro valor. Te comparto ejercicios prácticos para recuperar la confianza en ti.",
+    "contenido": "Tras una ruptura amorosa, es frecuente que la autoestima se vea afectada. Para reconstruirla: reconoce tus cualidades más allá de la relación, rodéate de personas que te valoren, establece pequeñas metas diarias y practica el autocuidado. La terapia puede ser un espacio seguro para explorar tus emociones y fortalecer tu amor propio."
+  },
+  {
+    "id": "articulo-4",
+    "title": "Mindfulness para principiantes",
+    "date": "10 de diciembre de 2024",
+    "category": "Bienestar",
+    "resumen": "El mindfulness no es dejar la mente en blanco, es aprender a estar presente. Descubre cómo empezar con ejercicios sencillos.",
+    "contenido": "Mindfulness significa atención plena. Dedica 5 minutos al día a respirar conscientemente, prestando atención a las sensaciones de tu cuerpo. La práctica regular reduce la ansiedad y mejora la concentración."
+  }
+]
