@@ -1,346 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Psicóloga especializada en autoestima, duelo, rupturas y dependencia emocional. Terapia online y presencial.">
-  <title>Yully Mallerly Rodríguez Garzón · Psicóloga</title>
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ===== ESTILOS ESPECÍFICOS DEL INDEX ===== */
-    .index-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Hero principal */
-    .hero {
-      background: linear-gradient(135deg, #5b8c85 0%, #7fb3a5 50%, #a8d5cd 100%);
-      color: white;
-      text-align: center;
-      padding: 5rem 2rem 6rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200"><path fill="%23f7faf9" d="M0,128L48,117.3C96,107,192,85,288,90.7C384,96,480,128,576,122.7C672,117,768,75,864,64C960,53,1056,75,1152,85.3C1248,96,1344,96,1392,96L1440,96L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path></svg>');
-      background-size: cover;
-      background-position: bottom;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
-    }
-    .hero .subtitulo {
-      font-size: 1.4rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-    }
-    .hero .especialidades-hero {
-      font-size: 1rem;
-      font-weight: 400;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-    .btn-hero {
-      display: inline-block;
-      background: white;
-      color: #5b8c85;
-      padding: 1rem 3rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .btn-hero:hover {
-      background: #f0f7f5;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    }
-
-    /* Sección de bienvenida */
-    .bienvenida {
-      text-align: center;
-      padding: 4rem 0 3rem;
-    }
-    .bienvenida h2 {
-      color: #5b8c85;
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-    .bienvenida p {
-      color: #636e72;
-      font-size: 1.15rem;
-      max-width: 650px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* Servicios destacados */
-    .servicios-destacados {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      padding: 2rem 0 4rem;
-    }
-    .servicio-card-index {
-      background: white;
-      padding: 2.5rem 2rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .servicio-card-index.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .servicio-card-index:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-    .servicio-icono {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .servicio-card-index h3 {
-      color: #5b8c85;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-    .servicio-card-index p {
-      color: #636e72;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Sección "¿Por qué elegirme?" */
-    .valores {
-      background: white;
-      border-radius: 20px;
-      padding: 3rem 2rem;
-      margin: 3rem 0;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.04);
-    }
-    .valores h2 {
-      text-align: center;
-      color: #5b8c85;
-      font-size: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    .valores-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-    .valor-item {
-      text-align: center;
-    }
-    .valor-icono {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .valor-item h4 {
-      color: #5b8c85;
-      margin-bottom: 0.5rem;
-    }
-    .valor-item p {
-      color: #636e72;
-      font-size: 0.9rem;
-    }
-
-    /* Banner final de acción */
-    .banner-accion {
-      background: linear-gradient(135deg, #5b8c85, #7fb3a5);
-      color: white;
-      text-align: center;
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      margin: 3rem 0 4rem;
-    }
-    .banner-accion h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .banner-accion p {
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-    }
-    .btn-banner {
-      display: inline-block;
-      background: white;
-      color: #5b8c85;
-      padding: 0.9rem 2.8rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .btn-banner:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-      .hero .subtitulo {
-        font-size: 1.1rem;
-      }
-      .bienvenida h2 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Yully Mallerly Rodríguez Garzón, magíster en Psicología Clínica y de la Salud. Acompañamiento en autoestima, duelo, rupturas y dependencia emocional. Atención virtual y presencial.">
+<meta name="theme-color" content="#BBE5E1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yully Rodríguez Psicóloga | Bienestar emocional">
+<meta property="og:description" content="Acompañamiento psicológico desde la empatía y la evidencia científica.">
+<title>Yully Rodríguez Psicóloga | Bienestar emocional</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="stylesheet" href="style.css?v=2">
+<script src="script.js?v=2" defer></script>
 </head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html" class="logo-enlace">
-        <img src="logo.png" alt="Yully Mallerly Rodríguez Garzón" class="logo-img">
-      </a>
-      <div class="nav-enlaces">
-        <a href="index.html">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="reservar.html">Reservar cita</a>
-        <a href="blog.html">Blog</a>
-        <a href="videos.html">Videos</a>
-        <a href="contacto.html">Contacto</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Yully Mallerly Rodríguez Garzón</h1>
-        <p class="subtitulo">Magíster en Psicología Clínica y de la Salud</p>
-        <p class="especialidades-hero">Autoestima · Duelo · Rupturas · Dependencia emocional</p>
-        <a href="reservar.html" class="btn-hero">Agenda tu primera sesión</a>
-      </div>
-    </section>
-
-    <div class="index-container">
-      <!-- Bienvenida -->
-      <section class="bienvenida">
-        <h2>Un espacio seguro para sanar</h2>
-        <p>Te ofrezco acompañamiento profesional desde la empatía y la evidencia científica. Juntos trabajaremos para que recuperes tu bienestar emocional y construyas relaciones más sanas contigo y con los demás.</p>
-      </section>
-
-      <!-- Servicios destacados -->
-      <section class="servicios-destacados">
-        <div class="servicio-card-index">
-          <div class="servicio-icono">💪</div>
-          <h3>Autoestima</h3>
-          <p>Fortalece tu amor propio y construye una imagen positiva de ti mismo.</p>
-        </div>
-        <div class="servicio-card-index">
-          <div class="servicio-icono">🕊️</div>
-          <h3>Duelo</h3>
-          <p>Acompañamiento respetuoso para transitar la pérdida con sentido.</p>
-        </div>
-        <div class="servicio-card-index">
-          <div class="servicio-icono">💔</div>
-          <h3>Rupturas</h3>
-          <p>Sana tu corazón tras una separación y reconstruye tu identidad.</p>
-        </div>
-        <div class="servicio-card-index">
-          <div class="servicio-icono">🔗</div>
-          <h3>Dependencia emocional</h3>
-          <p>Construye vínculos sanos desde la libertad y el amor propio.</p>
-        </div>
-      </section>
-
-      <!-- ¿Por qué elegirme? -->
-      <section class="valores">
-        <h2>¿Por qué trabajar conmigo?</h2>
-        <div class="valores-grid">
-          <div class="valor-item">
-            <div class="valor-icono">🎓</div>
-            <h4>Formación sólida</h4>
-            <p>Doble maestría en Psicología Clínica y de la Salud, con más de 5 años de experiencia.</p>
-          </div>
-          <div class="valor-item">
-            <div class="valor-icono">🤝</div>
-            <h4>Enfoque cercano</h4>
-            <p>Terapia basada en la empatía, la confianza y el respeto por tu proceso único.</p>
-          </div>
-          <div class="valor-item">
-            <div class="valor-icono">📱</div>
-            <h4>Flexibilidad</h4>
-            <p>Sesiones online o presenciales, adaptadas a tu ritmo de vida.</p>
-          </div>
-          <div class="valor-item">
-            <div class="valor-icono">🔒</div>
-            <h4>Confidencialidad</h4>
-            <p>Tu privacidad es absoluta. Espacio seguro y protegido.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Banner de acción -->
-      <section class="banner-accion">
-        <h2>¿Listo para dar el primer paso?</h2>
-        <p>Reserva tu primera consulta y comienza tu camino hacia el bienestar emocional.</p>
-        <a href="reservar.html" class="btn-banner">Reservar cita ahora</a>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    <div class="redes-sociales">
-      <a href="https://www.instagram.com/yullypsicologa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </a>
-    </div>
-    <p>© 2025 Yully Mallerly Rodríguez Garzón · Psicóloga</p>
-    <p>
-      <a href="aviso-legal.html">Aviso legal</a> · 
-      <a href="privacidad.html">Política de privacidad</a> · 
-      <a href="cookies.html">Política de cookies</a> · 
-      <a href="terminos.html">Términos de uso</a>
-    </p>
-  </footer>
-
-  <!-- WhatsApp float -->
-  <a href="https://wa.me/573124954578?text=Hola%20Yully%2C%20quisiera%20información%20sobre%20terapia" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-
-  <!-- Script para animaciones -->
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.servicio-card-index').forEach(el => observer.observe(el));
-  </script>
-</body>
-</html>
+<body class="home-v2">
+<a class="skip-link" href="#contenido">Ir al contenido</a>
+<header><nav aria-label="Navegación principal">
+<a class="logo-enlace" href="index.html"><img class="logo-img" src="logo.png" alt="Yully Rodríguez Psicóloga"></a>
+<button class="menu-toggle" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú" hidden><span></span><span></span><span></span></button>
+<div class="nav-enlaces" id="nav-principal"><a href="index.html" aria-current="page">Inicio</a><a href="sobre-mi.html">Sobre mí</a><a href="servicios.html">Servicios</a><a href="blog.html">Blog</a><a href="videos.html">Videos</a><a href="contacto.html">Contacto</a><a class="nav-reserva" href="reservar.html">Reservar cita</a></div>
+</nav></header>
+<main id="contenido">
+<section class="v2-hero"><div class="v2-container v2-hero-grid">
+<div><p class="v2-eyebrow">Psicología clínica y de la salud</p><h1>Tu bienestar emocional también es una prioridad.</h1><p class="v2-lead">Soy Yully Mallerly Rodríguez Garzón, magíster en Psicología Clínica y de la Salud. Te acompaño desde la empatía, el respeto y la evidencia científica.</p><div class="v2-actions"><a class="v2-button" href="reservar.html">Agenda tu sesión <span aria-hidden="true">↗</span></a><a class="v2-button v2-outline" href="sobre-mi.html">Conóceme</a></div><p class="v2-modalidad">Atención virtual y presencial</p></div>
+<div class="v2-portrait"><img src="yully.jpeg" alt="Fotografía profesional de Yully Rodríguez" fetchpriority="high"><div class="v2-photo-label"><strong>Yully Rodríguez</strong><span>Psicóloga</span></div></div>
+</div></section>
+<section class="v2-section v2-container" aria-labelledby="servicios-titulo"><div class="v2-section-heading"><p class="v2-eyebrow">Acompañamiento psicológico</p><h2 id="servicios-titulo">¿En qué puedo acompañarte?</h2><p>Un espacio de escucha para comprender tus emociones y construir relaciones más sanas.</p></div>
+<div class="v2-services">
+<article class="v2-service"><span class="v2-symbol" aria-hidden="true">♡</span><h3>Autoestima</h3><p>Fortalece tu amor propio y construye una relación más amable contigo.</p><a href="servicios.html">Conocer más <span aria-hidden="true">→</span></a></article>
+<article class="v2-service"><span class="v2-symbol" aria-hidden="true">✿</span><h3>Duelo</h3><p>Acompañamiento respetuoso para transitar las pérdidas y los cambios.</p><a href="servicios.html">Conocer más <span aria-hidden="true">→</span></a></article>
+<article class="v2-service"><span class="v2-symbol" aria-hidden="true">◇</span><h3>Rupturas</h3><p>Explora tus emociones y reconstruye tu identidad después de una separación.</p><a href="servicios.html">Conocer más <span aria-hidden="true">→</span></a></article>
+<article class="v2-service"><span class="v2-symbol" aria-hidden="true">∞</span><h3>Dependencia emocional</h3><p>Trabaja en vínculos saludables desde la autonomía y el amor propio.</p><a href="servicios.html">Conocer más <span aria-hidden="true">→</span></a></article>
+</div></section>
+<section class="v2-about"><div class="v2-container v2-about-grid"><div><p class="v2-eyebrow">Mi forma de acompañarte</p><h2>Tu proceso, a tu ritmo.</h2><p>Cada historia es diferente. Mi propósito es ofrecerte un acompañamiento profesional y respetuoso, teniendo en cuenta tus necesidades.</p><a class="v2-button v2-outline" href="sobre-mi.html">Mi trayectoria profesional</a></div><div class="v2-values"><article><h3>Formación profesional</h3><p>Psicología clínica y de la salud.</p></article><article><h3>Enfoque cercano</h3><p>Empatía, confianza y respeto por tu proceso.</p></article><article><h3>Flexibilidad</h3><p>Consulta virtual o presencial.</p></article><article><h3>Confidencialidad</h3><p>Respeto por tu privacidad y los deberes éticos profesionales.</p></article></div></div></section>
+<section class="v2-section v2-container"><div class="v2-section-heading"><p class="v2-eyebrow">Aprende y reflexiona</p><h2>Recursos para tu bienestar</h2></div><div class="v2-resources"><article><h3>Blog de psicología</h3><p>Explora artículos y reflexiones sobre el bienestar emocional.</p><a class="v2-button v2-outline" href="blog.html">Leer artículos</a></article><article><h3>Videos</h3><p>Descubre contenido audiovisual sobre psicología.</p><a class="v2-button v2-outline" href="videos.html">Ver videos</a></article></div></section>
+<section class="v2-section v2-container v2-faq"><div class="v2-section-heading"><p class="v2-eyebrow">Resuelve tus dudas</p><h2>Preguntas frecuentes</h2></div><details><summary>¿Cómo agendo mi primera sesión?</summary><p>Visita la <a href="reservar.html">página de reserva</a> para conocer las opciones disponibles o comunícate por WhatsApp.</p></details><details><summary>¿La atención es virtual o presencial?</summary><p>Se ofrecen ambas modalidades. Consulta la disponibilidad y las condiciones de atención antes de reservar.</p></details><details><summary>¿Cómo se protege mi información?</summary><p>Consulta la <a href="privacidad.html">política de privacidad</a>. Evita compartir información clínica sensible por canales de contacto general.</p></details><details><summary>¿Puedo utilizar este sitio en una emergencia?</summary><p>No. Este sitio no es un servicio de urgencias. Si existe un riesgo inmediato, contacta a los servicios de emergencia de tu localidad.</p></details></section>
+<section class="v2-container v2-section"><div class="v2-cta"><p class="v2-eyebrow">Da el primer paso</p><h2>Cuidar de ti también es avanzar.</h2><p>Conoce las opciones de consulta y agenda tu sesión.</p><a class="v2-button" href="reservar.html">Reservar cita</a></div></section>
+</main>
+<footer><div class="v2-container v2-footer"><div><strong>Yully Mallerly Rodríguez Garzón</strong><p>Psicóloga · Bienestar emocional</p><p>© <span data-year>2026</span></p></div><div><a href="https://www.instagram.com/yullypsicologa" target="_blank" rel="noopener noreferrer">Instagram</a><a href="contacto.html">Contacto</a><a href="reservar.html">Reservar cita</a></div><div><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Política de privacidad</a><a href="cookies.html">Política de cookies</a><a href="terminos.html">Términos de uso</a></div></div></footer>
+<a class="whatsapp-float" href="https://wa.me/573124954578?text=Hola%20Yully%2C%20quisiera%20informaci%C3%B3n%20sobre%20terapia" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893C23.946 5.335 18.604 0 12.05 0zm0 21.785a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.888 9.888-9.888 5.45 0 9.884 4.438 9.884 9.884-.003 5.45-4.437 9.896-9.892 9.896z"/></svg></a>
+</body></html>
