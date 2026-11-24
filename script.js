@@ -68,3 +68,41 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
   else init();
 })();
+
+/* V3.1 — enlaces centralizados y consultas administrativas. */
+(() => {
+  'use strict';
+  function initContact() {
+    const config = window.SITE_CONFIG;
+    if (!config) return; // Los enlaces HTML originales siguen funcionando.
+    document.querySelectorAll('[data-site-link]').forEach(link => {
+      const value = config.redes[link.dataset.siteLink];
+      if (typeof value === 'string' && value.startsWith('https://')) link.href = value;
+    });
+    document.querySelectorAll('[data-site-text]').forEach(el => {
+      const value = config[el.dataset.siteText];
+      if (typeof value === 'string') el.textContent = value;
+    });
+    const form = document.getElementById('v31-contact-form');
+    const status = document.getElementById('v31-contact-status');
+    if (!form) return;
+    const submit = form.querySelector('button[type="submit"]');
+    if (submit) submit.disabled = false;
+    const topics = { disponibilidad:'la disponibilidad de citas', modalidades:'las modalidades de atención', tarifas:'las tarifas y condiciones de atención', general:'información general sobre las consultas' };
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const topic = document.getElementById('v31-topic').value;
+      if (!Object.prototype.hasOwnProperty.call(topics,topic)) return;
+      if (!/^\d{8,15}$/.test(config.whatsappNumero)) {
+        if(status) status.textContent = 'El número de WhatsApp no está configurado. Utiliza otro canal de contacto.';
+        return;
+      }
+      const msg = 'Hola Yully, quisiera consultar sobre ' + topics[topic] + '. Gracias.';
+      const url = 'https://wa.me/' + config.whatsappNumero + '?text=' + encodeURIComponent(msg);
+      if(status) status.textContent = 'Se abrirá WhatsApp. Revisa el mensaje y decide si deseas enviarlo.';
+      window.location.assign(url);
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initContact,{once:true});
+  else initContact();
+})();
