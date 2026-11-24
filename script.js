@@ -1,4 +1,4 @@
-/* Web V2 — navegación y mejoras progresivas */
+/* Web Premium V3 — navegación y mejoras progresivas */
 (() => {
   'use strict';
   function init() {
@@ -42,6 +42,13 @@
           if (a.getAttribute('href') === current) a.setAttribute('aria-current', 'page');
         });
       }
+    }
+    const topButton = document.querySelector('.v3-top');
+    if (topButton) {
+      const updateTop = () => { topButton.hidden = window.scrollY < 600; };
+      updateTop();
+      window.addEventListener('scroll', updateTop, { passive: true });
+      topButton.addEventListener('click', () => { window.scrollTo({top:0, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}); document.querySelector('.skip-link')?.focus({preventScroll:true}); });
     }
     document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
     const cards = document.querySelectorAll('.servicio, .servicio-detalle, .entrada, .servicio-card-index, .v2-service');
